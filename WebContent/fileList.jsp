@@ -17,20 +17,31 @@
 <body>
 <h1>업로드 파일 리스트</h1>
 
-<p>hashmap 방식</p>
+<p>다운로드리스트</p>
 <%
 
-	HashMap<String, String> map = (HashMap<String, String>)request.getAttribute("map");
+/* 	HashMap<String, String> map = (HashMap<String, String>)request.getAttribute("map");
 	Iterator<String> keys = map.keySet().iterator();
 	while(keys.hasNext()){
 		String key = keys.next();
 		String value = map.get(key);
+		 */
+		 
+		 HashMap<String, String> map = (HashMap<String, String>)request.getAttribute("map");
+			Iterator<String> keys = map.keySet().iterator();
+			while(keys.hasNext()){
+				String systemfilename = keys.next();
+				String value = map.get(systemfilename);
+		
 	
 %>
 
-<%= key %>
+<%-- <%= key %>
 <br>
-<%= value %>
+<%= value %> --%>
+
+
+<a href="03_download.jsp?file_name=<%= systemfilename %>"><%= systemfilename %></a><br> 원본 파일 명 : <%= value %> <hr>
 <%
 	}
 %>
